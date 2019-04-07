@@ -10,8 +10,6 @@ import LoadingSpinner from './components/LoadingSpinner'
 const Wrapper = styled.div`
 `
 
-import testImages from './assets/photos-hq'
-
 export default class extends Component {
   constructor(props) {
     super(props)
@@ -24,7 +22,7 @@ export default class extends Component {
   }
 
   static defaultProps = {
-    images: testImages,
+    images: [],
     rowHeight: '200px',
     numColumns: 8,
     gutterSize: '15px',

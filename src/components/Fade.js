@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Transition from 'react-transition-group/Transition'
 
-function getStarts(top, bottom, left, right) {
+export function getStarts(top, bottom, left, right) {
   return {
     top: top ? (typeof top === 'object' ? top.start : '-40px') : 'auto',
     bottom: bottom ? (typeof bottom === 'object' ? bottom.start : '-40px') : 'auto',
@@ -10,7 +10,7 @@ function getStarts(top, bottom, left, right) {
     right: right ? (typeof right === 'object' ? right.start : '-40px') : 'auto'
   }
 }
-function getFinishes(top, bottom, left, right) {
+export function getFinishes(top, bottom, left, right) {
   return {
     top: top ? (typeof top === 'object' ? top.finish : '0') : 'auto',
     bottom: bottom ? (typeof bottom === 'object' ? bottom.finish : '0') : 'auto',

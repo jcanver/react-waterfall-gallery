@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/core'
 import {render} from 'react-dom'
 
 import Example from '../../src'
+import demoImages from './assets/photos-hq'
 
 class Demo extends Component {
   render() {
@@ -16,7 +17,9 @@ class Demo extends Component {
             }
           }}
         />
-        <Example />
+        <Example
+          images={demoImages}
+        />
       </div>
     )
   }
