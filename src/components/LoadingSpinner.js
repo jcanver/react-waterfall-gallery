@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import Flex from './Flex'
-// import theme from 'theme'
 import GridLoader from 'react-spinners/GridLoader'
+import Flex from './Flex'
 
 const Wrapper = styled(Flex)`
   height: 100%;
@@ -27,11 +26,11 @@ function LoadingSpinner({ color, ...props }) {
 }
 
 LoadingSpinner.defaultProps = {
-  color: '#FFFFFF'
+  color: '#FFFFFF',
 }
 
 LoadingSpinner.propTypes = {
-  color: PropTypes.string
+  color: PropTypes.string,
 }
 
 export default LoadingSpinner

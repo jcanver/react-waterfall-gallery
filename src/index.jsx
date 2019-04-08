@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import timeout from './utils/timeout'
 
@@ -10,30 +11,43 @@ import LoadingSpinner from './components/LoadingSpinner'
 const Wrapper = styled.div`
 `
 
-export default class extends Component {
+export default class WaterfallGallery extends Component {
+  static defaultProps = {
+    images: [],
+    rowHeight: '150px',
+    numColumns: 4,
+    gutterSize: '15px',
+    defaultOpacity: 0.65,
+    icon: null,
+  }
+
+  static propTypes = {
+    images: PropTypes.array,
+    rowHeight: PropTypes.string,
+    numColumns: PropTypes.number,
+    gutterSize: PropTypes.string,
+    defaultOpacity: PropTypes.number,
+    icon: PropTypes.node,
+  }
+
   constructor(props) {
     super(props)
+    const { images } = this.props
+
     this.state = {
       assetsLoaded: false,
       showModal: false,
       activeImage: null,
-      entranceDelays: this.props.images.map((p, index) => (index + 1) * 200),
+      entranceDelays: images.map((p, index) => (index + 1) * 200),
     }
   }
 
-  static defaultProps = {
-    images: [],
-    rowHeight: '200px',
-    numColumns: 8,
-    gutterSize: '15px',
-    defaultOpacity: 0.65,
-  }
-
   componentDidMount() {
-    this.preload(this.props.images)
+    const { images } = this.props
+    this.preload(images)
   }
 
-  openModal = async (activeImage) => this.setState({ activeImage, showModal: true })
+  openModal = async activeImage => this.setState({ activeImage, showModal: true })
 
   handleNext = () => {
     const { activeImage } = this.state
@@ -49,21 +63,26 @@ export default class extends Component {
     this.setState({ activeImage: activeImage === 0 ? images.length - 1 : activeImage - 1 })
   }
 
-  closeModal = async (activeImage) => {
+  closeModal = async () => {
     await this.setState({ showModal: false })
     await timeout(500)
     await this.setState({ activeImage: null })
   }
-  
+
   preload = (imageArray, index = 0) => {
+    const { images } = this.props
     if (imageArray && imageArray.length > index) {
       const img = new Image()
-      img.src = this.props.images[index]
+      img.src = images[index]
       img.onload = () => this.preload(imageArray, index + 1)
     } else {
-      setTimeout(
-        () => this.setState({ assetsLoaded: true }), 500)
+      this.setAssetsLoaded()
     }
+  }
+
+  setAssetsLoaded = async () => {
+    await timeout(500)
+    this.setState({ assetsLoaded: true })
   }
 
   render() {
@@ -74,7 +93,6 @@ export default class extends Component {
       showModal,
     } = this.state
 
-    
     const {
       images,
       rowHeight,
@@ -83,7 +101,7 @@ export default class extends Component {
       defaultOpacity,
       icon,
     } = this.props
-    
+
     return (
       <Wrapper>
         <Fade show={!assetsLoaded}>

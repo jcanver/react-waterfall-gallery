@@ -46,7 +46,7 @@ const fadeStyles = {
   height: '100%',
 }
 
-function Thumbnail({
+export default function Thumbnail({
   image,
   index,
   rowHeight,
@@ -54,12 +54,11 @@ function Thumbnail({
   handleClick,
   show,
   timeout,
-  ...rest,
 }) {
   return (
     <AppearWrapper index={index} rowHeight={rowHeight}>
       <Fade show={show} bottom timeout={timeout} styles={fadeStyles}>
-        <Wrapper index={index} opacity={defaultOpacity} {...rest}>
+        <Wrapper index={index} opacity={defaultOpacity}>
           <Img
             src={image}
             onClick={() => handleClick(index)}
@@ -71,9 +70,11 @@ function Thumbnail({
 }
 
 Thumbnail.propTypes = {
-  image: PropTypes.string,
-  index: PropTypes.number,
-  handleClick: PropTypes.func,
+  image: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  rowHeight: PropTypes.string.isRequired,
+  defaultOpacity: PropTypes.number.isRequired,
+  show: PropTypes.bool.isRequired,
+  timeout: PropTypes.number.isRequired,
 }
-
-export default Thumbnail

@@ -2,17 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import media from '../utils/media'
-import Flex from './Flex'
 import Thumbnail from './Thumbnail'
 
 const Grid = styled.div`
   display: grid;
   position: relative;
   margin: 0 auto;
-  grid-template-columns: ${props => {
+  grid-template-columns: ${(props) => {
     let result = 'auto'
     let i = 1
-    for (i; i < props.numColumns; i++) {
+    for (i; i < props.numColumns; i += 1) {
       result += ' auto'
     }
     return result
@@ -26,15 +25,12 @@ const Grid = styled.div`
   `}
 `
 
-function Gallery({
+export default function Gallery({
   entranceDelays,
-  activeImage,
   gutterSize,
   rowHeight,
   images,
-  handleClick,
   show,
-  photoDelays,
   openModal,
   numColumns,
   defaultOpacity,
@@ -43,7 +39,7 @@ function Gallery({
     <Grid numColumns={numColumns} gutterSize={gutterSize}>
       {images.map((image, index) => (
         <Thumbnail
-          key={index}
+          key={image}
           index={index}
           image={images[index]}
           handleClick={openModal}
@@ -58,9 +54,12 @@ function Gallery({
 }
 
 Gallery.propTypes = {
-  items: PropTypes.array,
-  remaining: PropTypes.array,
-  handleClick: PropTypes.func
+  images: PropTypes.array.isRequired,
+  entranceDelays: PropTypes.array.isRequired,
+  openModal: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  numColumns: PropTypes.number.isRequired,
+  defaultOpacity: PropTypes.number.isRequired,
+  rowHeight: PropTypes.string.isRequired,
+  gutterSize: PropTypes.string.isRequired,
 }
-
-export default Gallery

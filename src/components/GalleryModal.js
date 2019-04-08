@@ -8,26 +8,32 @@ import media from '../utils/media'
 
 export default class GalleryModal extends React.PureComponent {
   static propTypes = {
-    show: PropTypes.bool,
-    active: PropTypes.number,
-    handleNext: PropTypes.func,
-    handlePrev: PropTypes.func,
-    closeModal: PropTypes.func,
+    show: PropTypes.bool.isRequired,
+    image: PropTypes.string,
+    handleNext: PropTypes.func.isRequired,
+    handlePrev: PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    image: null,
   }
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyDown, false)
   }
-  
+
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKeyDown, false)
   }
 
   handleKeyDown = ({ code }) => {
+    const { handleNext, handlePrev } = this.props
+
     if (code === 'ArrowRight') {
-      this.props.handleNext()
+      handleNext()
     } else if (code === 'ArrowLeft') {
-      this.props.handlePrev()
+      handlePrev()
     }
   }
 
@@ -70,8 +76,8 @@ const Modal = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 1001;
-  opacity: ${props => props.show ? '1' : '0'};
-  pointer-events: ${props => props.show ? 'auto' : 'none'};
+  opacity: ${({ show }) => show ? '1' : '0'};
+  pointer-events: ${({ show }) => show ? 'auto' : 'none'};
   transition: opacity 0.8s;
   ${media.smDown`
     flex-wrap: wrap;
