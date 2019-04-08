@@ -17,7 +17,8 @@
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "test:watch": "nwb test-react --server",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
@@ -38,7 +39,9 @@
     "eslint-plugin-react": "^7.12.4",
     "nwb": "0.23.x",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "semantic-release": "^15.13.3",
+    "travis-deploy-once": "^5.0.11"
   },
   "author": "John Canver",
   "homepage": "",

@@ -44,7 +44,7 @@ class MyComponent extends React.Component {
 ### Props
 | Prop  | Type  | Default  | Description  |
 |:------|:------|:---------|:-------------|
-| images | Array | [] | (Required) Array of images sources |
+| images | Array | [] | (Required) Array of image sources |
 | numColumns | number | 4 | (Optional) Number of grid columns |
 | rowHeight | string | '150px' | (Optional) Height of each row/thumbnail |
 | gutterSize | string | '15px' | (Optional) Size of grid gutter (space between thumbnails) |
