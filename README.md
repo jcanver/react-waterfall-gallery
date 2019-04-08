@@ -5,7 +5,7 @@
 [![Coveralls][coveralls-badge]][coveralls]
 
 ### Preview
-<img alt="react-waterfall-gallery demo" src="http://www.johncanver.com/projects/react-waterfall-gallery/static/waterfall-example-small.gif">
+<img alt="react-waterfall-gallery demo" src="http://www.johncanver.com/projects/react-waterfall-gallery/static/waterfall-example-short.gif">
 
 
 ### Installation
