@@ -1,4 +1,4 @@
-# react-preloaded-gallery
+# react-waterfall-gallery
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
