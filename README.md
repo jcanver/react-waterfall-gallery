@@ -46,10 +46,12 @@ class MyComponent extends React.Component {
 |:------|:------|:---------|:-------------|
 | images | Array | [] | (Required) Array of image sources |
 | numColumns | number | 4 | (Optional) Number of grid columns |
-| rowHeight | string | '150px' | (Optional) Height of each row/thumbnail |
-| gutterSize | string | '15px' | (Optional) Size of grid gutter (space between thumbnails) |
+| rowHeight | string | 150px | (Optional) Height of each row/thumbnail |
+| gutterSize | string | 15px | (Optional) Size of grid gutter (space between thumbnails) |
 | defaultOpacity | number | 0.65 | (Optional) Opacity of thumbnail (hovering over thumbnail causes full opacity) |
 | icon | Component | null | (Optional) Component to display instead of default loading spinner |
+| direction | string | bottom | (Optional) Direction of waterfall entrances; Valid parameters include: bottom, top, left, right |
+| step | number | 200 | (Optional) Time (in milliseconds) between each image's entrance in waterfall animation |
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
 [build]: https://travis-ci.org/user/repo

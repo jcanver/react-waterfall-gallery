@@ -20,6 +20,7 @@ export default class WaterfallGallery extends Component {
     defaultOpacity: 0.65,
     icon: null,
     direction: 'bottom',
+    step: 200,
   }
 
   static propTypes = {
@@ -30,17 +31,18 @@ export default class WaterfallGallery extends Component {
     defaultOpacity: PropTypes.number,
     icon: PropTypes.node,
     direction: PropTypes.string,
+    step: PropTypes.string,
   }
 
   constructor(props) {
     super(props)
-    const { images } = this.props
+    const { images, step } = this.props
 
     this.state = {
       assetsLoaded: false,
       showModal: false,
       activeImage: null,
-      entranceDelays: images.map((p, index) => (index + 1) * 200),
+      entranceDelays: images.map((p, index) => (index + 1) * step),
     }
   }
 
