@@ -1,7 +1,7 @@
 {
   "name": "react-waterfall-gallery",
   "version": "0.0.1-development",
-  "description": "react-preloaded-gallery React component",
+  "description": "react-waterfall-gallery React component",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
