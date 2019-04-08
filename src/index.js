@@ -19,6 +19,7 @@ export default class WaterfallGallery extends Component {
     gutterSize: '15px',
     defaultOpacity: 0.65,
     icon: null,
+    direction: 'bottom',
   }
 
   static propTypes = {
@@ -28,6 +29,7 @@ export default class WaterfallGallery extends Component {
     gutterSize: PropTypes.string,
     defaultOpacity: PropTypes.number,
     icon: PropTypes.node,
+    direction: PropTypes.string,
   }
 
   constructor(props) {
@@ -100,6 +102,7 @@ export default class WaterfallGallery extends Component {
       numColumns,
       defaultOpacity,
       icon,
+      direction,
     } = this.props
 
     return (
@@ -115,11 +118,11 @@ export default class WaterfallGallery extends Component {
             numColumns={numColumns}
             gutterSize={gutterSize}
             defaultOpacity={defaultOpacity}
-            // gutterSize="0.5%"
             openModal={this.openModal}
             show={assetsLoaded}
             entranceDelays={entranceDelays}
             activeImage={activeImage}
+            direction={direction}
           />
         </Fade>
 

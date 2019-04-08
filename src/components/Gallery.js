@@ -34,6 +34,7 @@ export default function Gallery({
   openModal,
   numColumns,
   defaultOpacity,
+  direction,
 }) {
   return (
     <Grid numColumns={numColumns} gutterSize={gutterSize}>
@@ -47,6 +48,7 @@ export default function Gallery({
           timeout={entranceDelays[index]}
           rowHeight={rowHeight}
           defaultOpacity={defaultOpacity}
+          direction={direction}
         />
       ))}
     </Grid>
@@ -62,4 +64,5 @@ Gallery.propTypes = {
   defaultOpacity: PropTypes.number.isRequired,
   rowHeight: PropTypes.string.isRequired,
   gutterSize: PropTypes.string.isRequired,
+  direction: PropTypes.string.isRequired,
 }

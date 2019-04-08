@@ -46,6 +46,27 @@ const fadeStyles = {
   height: '100%',
 }
 
+const getDirection = (direction) => {
+  if (direction === 'top') {
+    return {
+      top: true,
+    }
+  }
+  if (direction === 'left') {
+    return {
+      left: true,
+    }
+  }
+  if (direction === 'right') {
+    return {
+      right: true,
+    }
+  }
+  return {
+    bottom: true,
+  }
+}
+
 export default function Thumbnail({
   image,
   index,
@@ -54,10 +75,16 @@ export default function Thumbnail({
   handleClick,
   show,
   timeout,
+  direction,
 }) {
   return (
     <AppearWrapper index={index} rowHeight={rowHeight}>
-      <Fade show={show} bottom timeout={timeout} styles={fadeStyles}>
+      <Fade
+        show={show}
+        timeout={timeout}
+        styles={fadeStyles}
+        {...getDirection(direction)}
+      >
         <Wrapper index={index} opacity={defaultOpacity}>
           <Img
             src={image}
@@ -77,4 +104,5 @@ Thumbnail.propTypes = {
   defaultOpacity: PropTypes.number.isRequired,
   show: PropTypes.bool.isRequired,
   timeout: PropTypes.number.isRequired,
+  direction: PropTypes.string.isRequired,
 }
