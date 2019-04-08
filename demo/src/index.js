@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import { Global, css } from '@emotion/core'
-import {render} from 'react-dom'
+import React, { Component } from 'react'
+import { Global } from '@emotion/core'
+import { render } from 'react-dom' // eslint-disable-line
 
 import Example from '../../src'
 import demoImages from './assets/photos-hq'
@@ -14,7 +14,7 @@ class Demo extends Component {
             'html, body': {
               margin: '0',
               backgroundColor: '#111111',
-            }
+            },
           }}
         />
         <Example
@@ -25,4 +25,4 @@ class Demo extends Component {
   }
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector('#demo'))

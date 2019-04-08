@@ -4,7 +4,43 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
-Describe react-preloaded-gallery here.
+### Installation
+
+`npm install --save react-waterfall-gallery`
+
+or
+
+`yarn add react-waterfall-gallery`
+
+### Example
+
+```
+import Gallery from 'react-waterfall-gallery'
+
+const images = [
+  'http://lorempixel.com/1200/800/',
+  'http://lorempixel.com/1200/800/',
+  'http://lorempixel.com/1200/800/',
+  'http://lorempixel.com/1200/800/',
+  'http://lorempixel.com/1200/800/',
+]
+
+const GalleryComponent = () => (
+  <Gallery
+    images={images}
+  />
+)
+```
+
+### Props
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| images | Array | [] | (Required) Array of images sources |
+| numColumns | number | 4 | (Optional) Number of grid columns |
+| rowHeight | string | '150px' | (Optional) Height of each row/thumbnail |
+| gutterSize | string | '15px' | (Optional) Size of grid gutter (space between thumbnails) |
+| defaultOpacity | number | 0.65 | (Optional) Opacity of thumbnail (hovering over thumbnail causes full opacity) |
+| icon | Component | null | (Optional) Component to display instead of default loading spinner |
 
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
 [build]: https://travis-ci.org/user/repo
