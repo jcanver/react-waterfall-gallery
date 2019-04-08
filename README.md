@@ -4,6 +4,10 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
+### Preview
+[<img width="400" alt="react-awesome-button demo" src="http://www.johncanver.com/projects/react-waterfall-gallery/static/waterfall-example.gif">]
+
+
 ### Installation
 
 `npm install --save react-waterfall-gallery`
@@ -15,6 +19,7 @@ or
 ### Example
 
 ```
+import React from 'react'
 import Gallery from 'react-waterfall-gallery'
 
 const images = [
@@ -25,16 +30,20 @@ const images = [
   'http://lorempixel.com/1200/800/',
 ]
 
-const GalleryComponent = () => (
-  <Gallery
-    images={images}
-  />
-)
+class MyComponent extends React.Component {
+  render () {
+    return (
+      <Gallery
+        images={images}
+      />
+    )
+  }
+}
 ```
 
 ### Props
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop  | Type  | Default  | Description  |
+|:------|:------|:---------|:-------------|
 | images | Array | [] | (Required) Array of images sources |
 | numColumns | number | 4 | (Optional) Number of grid columns |
 | rowHeight | string | '150px' | (Optional) Height of each row/thumbnail |
