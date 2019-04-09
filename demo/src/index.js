@@ -13,7 +13,6 @@ class Demo extends Component {
           styles={{
             'html, body': {
               margin: '0',
-              backgroundColor: '#111111',
             },
           }}
         />

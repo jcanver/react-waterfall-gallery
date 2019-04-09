@@ -26,7 +26,7 @@ function LoadingSpinner({ color, ...props }) {
 }
 
 LoadingSpinner.defaultProps = {
-  color: '#FFFFFF',
+  color: '#000000',
 }
 
 LoadingSpinner.propTypes = {

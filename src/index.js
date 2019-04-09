@@ -21,6 +21,7 @@ export default class WaterfallGallery extends Component {
     icon: null,
     direction: 'bottom',
     step: 200,
+    iconColor: '#000000',
   }
 
   static propTypes = {
@@ -30,6 +31,7 @@ export default class WaterfallGallery extends Component {
     gutterSize: PropTypes.string,
     defaultOpacity: PropTypes.number,
     icon: PropTypes.node,
+    iconColor: PropTypes.string,
     direction: PropTypes.string,
     step: PropTypes.string,
   }
@@ -103,6 +105,7 @@ export default class WaterfallGallery extends Component {
       gutterSize,
       numColumns,
       defaultOpacity,
+      iconColor,
       icon,
       direction,
     } = this.props
@@ -110,7 +113,7 @@ export default class WaterfallGallery extends Component {
     return (
       <Wrapper>
         <Fade show={!assetsLoaded}>
-          {icon || <LoadingSpinner />}
+          {icon || <LoadingSpinner color={iconColor} />}
         </Fade>
 
         <Fade show={assetsLoaded}>
