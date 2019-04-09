@@ -47,6 +47,11 @@ const fadeStyles = {
 }
 
 const getDirection = (direction) => {
+  if (direction === 'bottom') {
+    return {
+      bottom: true,
+    }
+  }
   if (direction === 'top') {
     return {
       top: true,
@@ -62,9 +67,7 @@ const getDirection = (direction) => {
       right: true,
     }
   }
-  return {
-    bottom: true,
-  }
+  return {}
 }
 
 export default function Thumbnail({
